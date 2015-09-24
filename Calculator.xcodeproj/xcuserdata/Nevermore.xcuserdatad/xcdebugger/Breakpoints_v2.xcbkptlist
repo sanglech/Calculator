@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CalculatorBrain.swift"
-            timestampString = "456877426.879185"
+            filePath = "Calculator/ViewController.swift"
+            timestampString = "464803248.181622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "init()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "enter()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CalculatorBrain.swift"
-            timestampString = "456877426.879185"
+            filePath = "Calculator/ViewController.swift"
+            timestampString = "464803248.181622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "init()"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "operate(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CalculatorBrain.swift"
-            timestampString = "456877426.879185"
+            filePath = "Calculator/ViewController.swift"
+            timestampString = "464803248.181622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "evaluate()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "operate(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

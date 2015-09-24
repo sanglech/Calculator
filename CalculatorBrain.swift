@@ -10,7 +10,7 @@ import Foundation
 
 class CalculatorBrain{
     
-    private enum Op : Printable{
+    private enum Op : CustomStringConvertible{
         case UnaryOperation (String,Double->Double)
         case BinaryOperation(String, (Double,Double)->Double)
         case Operand (Double)
@@ -31,9 +31,11 @@ class CalculatorBrain{
     private var opStack = [Op]()
     
     /*Declare a dictionary same as Dictionary<String,Op>() */
+    //(key,value)
     
     private var knownOps = [String:Op]()
     
+    /* When calculator brain gets called, this init gets called.*/
     init(){
         func learnOp(op: Op){
             knownOps[op.description]=op
@@ -45,7 +47,9 @@ class CalculatorBrain{
         learnOp(Op.UnaryOperation("√", sqrt))
         
     }
-    
+
+    /* Read only when passing values that are not classes (makes copy). 
+    Note: implicit let for vlues that are passed in.*/
    private func evaluate(ops:[Op])->(result:Double?,remainingOps:[Op]){
         if !ops.isEmpty{
             var remaingOps=ops
@@ -70,10 +74,15 @@ class CalculatorBrain{
         }
         return (nil, ops)
     }
-    //use OPtional/return qhwn want to return null/nill
+    //use OPtional/return when you want to return null/nill
     func evaluate() ->Double? {
     let (result, remainder)=evaluate(opStack)
-        println("\(opStack) = \(result) with \(remainder) left over")
+        if let _=result{
+            print("\(opStack) = \(result!) with \(remainder) left over")
+        }
+        else{
+            print ("Should clear history")
+        }
         return result
     }
     
@@ -87,5 +96,12 @@ class CalculatorBrain{
             opStack.append(operation)
         }
         return evaluate()
+    }
+    
+    func clearStack(){
+        while(opStack.count>0){
+            opStack.removeLast()
+        }
+        print("opstack is \(opStack)")
     }
 }

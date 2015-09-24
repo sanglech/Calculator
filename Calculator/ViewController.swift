@@ -11,7 +11,27 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    
     var userIsInMiddleOfTypingANumber=false
+    var displayValue: Double?{
+        get{
+            if let check = NSNumberFormatter().numberFromString(display.text!)?.doubleValue{
+                return check
+            }
+            else{
+                
+                print("No items?")
+                return nil
+            }
+        }
+        set{
+            display.text="\(newValue!)"
+            userIsInMiddleOfTypingANumber=false
+        }
+    }
+    
+
+    //Initialize the Model (controller talking to model i.e. Calculator brain)
     var brain=CalculatorBrain()
     
     @IBAction func appendDigit(sender: UIButton) {
@@ -26,7 +46,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        let operation=sender.currentTitle!
         if userIsInMiddleOfTypingANumber{
             enter()
         }
@@ -37,7 +56,7 @@ class ViewController: UIViewController {
                 displayValue=result
             }
             else{
-                displayValue=0
+                displayValue=nil
             }
         }
     }
@@ -45,18 +64,23 @@ class ViewController: UIViewController {
     
     @IBAction func clear() {
         display.text!="0"
+        brain.clearStack()
     }
     
     @IBAction func enter() {
         userIsInMiddleOfTypingANumber=false
-        if let result=brain.pushOpperand(displayValue){
-            displayValue=result
-        }
-        else{
-            displayValue=0
+        if let _=displayValue{
+            if let result=brain.pushOpperand(displayValue!){
+                displayValue=result
+            }
+            else{
+                displayValue=nil
+            }
+        }else{
+            print("Passing nil")
         }
     }
-    
+    /*
     var displayValue:Double {
         get{
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
@@ -66,6 +90,5 @@ class ViewController: UIViewController {
             display.text = "\(newValue)"
             userIsInMiddleOfTypingANumber=false
         }
-    }
+    }*/
 }
-
